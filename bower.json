@@ -1,6 +1,6 @@
 {
-  "name": "strongbots",
-  "description": "StrongBots front-end",
+  "name": "gulpfish",
+  "description": "GulpFishBootstraper front-end",
   "main": "index.js",
   "license": "ISC",
   "homepage": "",
@@ -12,7 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.2.1",
-    "bootstrap": "^3.3.7"
+    "jquery": "^1.9.1",
+    "bootstrap": "^4.1.1"
   }
 }
