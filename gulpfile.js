@@ -21,8 +21,8 @@ var path = {
 	},
 	src: {
 		html: 'src/*.html',
-		js: 'src/js/script.js',
-		style: 'src/css/style.css',
+		js: 'src/js/*.js',
+		style: 'src/css/*.css',
 		img: 'src/img/',
 		fonts: 'src/fonts/'
 	},
