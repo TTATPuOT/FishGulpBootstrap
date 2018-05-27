@@ -66,6 +66,11 @@ gulp.task("webserver", function(){
 });
 
 //Build Tasks
+gulp.task('img:build', function(){
+	gulp.src(path.watch.img)
+		.pipe(gulp.dest(path.release.img))
+		.pipe(reload({stream: true}));
+});
 gulp.task('fonts:build', function(){
 	gulp.src(path.watch.fonts)
 		.pipe(gulp.dest(path.build.fonts))
@@ -89,6 +94,7 @@ gulp.task('style:build', function(){
 		.pipe(reload({stream: true}))
 });
 gulp.task('build', [
+	'img:build',
 	'html:build',
 	'js:build',
 	'style:build',
@@ -144,6 +150,9 @@ gulp.task('watch', function(){
 	});
 	watch([path.watch.style], function(ev, callback){
 		gulp.start('style:build');
+	});
+	watch([path.watch.img], function(ev, callback){
+		gulp.start('img:build');
 	});
 	watch([path.watch.fonts], function(ev, callback){
 		gulp.start('fonts:build');
