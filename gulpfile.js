@@ -145,9 +145,6 @@ gulp.task('watch', function(){
 	watch([path.watch.style], function(ev, callback){
 		gulp.start('style:build');
 	});
-	watch([path.watch.img], function(ev, callback){
-		gulp.start('img:build');
-	});
 	watch([path.watch.fonts], function(ev, callback){
 		gulp.start('fonts:build');
 	});
