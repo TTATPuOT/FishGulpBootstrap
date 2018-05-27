@@ -68,7 +68,7 @@ gulp.task("webserver", function(){
 //Build Tasks
 gulp.task('img:build', function(){
 	gulp.src(path.watch.img)
-		.pipe(gulp.dest(path.release.img))
+		.pipe(gulp.dest(path.build.img))
 		.pipe(reload({stream: true}));
 });
 gulp.task('fonts:build', function(){
