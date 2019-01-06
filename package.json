@@ -19,13 +19,13 @@
     "gulp-rename": "^1.2.2",
     "gulp-rigger": "^0.5.8",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "main-bower-files": "^2.13.1",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.4.0"
+    "gulp-imagemin": "^3.4.0",
+    "gulp-uglify-es": "^1.0.4"
   }
 }
