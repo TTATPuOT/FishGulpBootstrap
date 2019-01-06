@@ -1,6 +1,5 @@
 # FishGulpBootstrap
 <h1>Commands for bootstrap:</h1>
-<code>npm update</code><br>
 <code>npm i</code><br>
 <code>npm i --global gulp</code><br>
 <code>npm i --global bower</code><br>
