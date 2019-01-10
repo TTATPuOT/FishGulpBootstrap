@@ -68,25 +68,30 @@ gulp.task("webserver", function(){
 //Build Tasks
 gulp.task('img:build', function(){
 	gulp.src(path.watch.img)
-		.pipe(gulp.dest(path.build.img));
+		.pipe(gulp.dest(path.build.img))
+		.pipe(reload({stream: true}));
 });
 gulp.task('fonts:build', function(){
 	gulp.src(path.watch.fonts)
-		.pipe(gulp.dest(path.build.fonts));
+		.pipe(gulp.dest(path.build.fonts))
+		.pipe(reload({stream: true}));
 });
 gulp.task('html:build', function(){
 	gulp.src(path.src.html)
 		.pipe(rigger())
-		.pipe(gulp.dest(path.build.html));
+		.pipe(gulp.dest(path.build.html))
+		.pipe(reload({stream: true}));
 });
 gulp.task('js:build', function(){
 	gulp.src(path.src.js)
-		.pipe(gulp.dest(path.build.js));
+		.pipe(gulp.dest(path.build.js))
+		.pipe(reload({stream: true}));
 });
 gulp.task('style:build', function(){
 	gulp.src(path.src.style)
 		.pipe(prefixer())
-		.pipe(gulp.dest(path.build.css));
+		.pipe(gulp.dest(path.build.css))
+		.pipe(reload({stream: true}));
 });
 gulp.task('build', [
 	'img:build',
@@ -108,32 +113,27 @@ gulp.task('release', [
 gulp.task('img:release', function(){
 	gulp.src(path.watch.img)
 		.pipe(imagemin())
-		.pipe(gulp.dest(path.release.img))
-		.pipe(reload({stream: true}));
+		.pipe(gulp.dest(path.release.img));
 });
 gulp.task('fonts:release', function(){
 	gulp.src(path.watch.fonts)
-		.pipe(gulp.dest(path.release.fonts))
-		.pipe(reload({stream: true}));
+		.pipe(gulp.dest(path.release.fonts));
 });
 gulp.task('html:release', function(){
 	gulp.src(path.src.html)
 		.pipe(rigger())
-		.pipe(gulp.dest(path.release.html))
-		.pipe(reload({stream: true}));
+		.pipe(gulp.dest(path.release.html));
 });
 gulp.task('js:release', function(){
 	gulp.src(path.src.js)
 		.pipe(uglify())
-		.pipe(gulp.dest(path.release.js))
-		.pipe(reload({stream: true}))
+		.pipe(gulp.dest(path.release.js));
 });
 gulp.task('style:release', function(){
 	gulp.src(path.src.style)
 		.pipe(prefixer())
 		.pipe(cssmin())
-		.pipe(gulp.dest(path.release.css))
-		.pipe(reload({stream: true}))
+		.pipe(gulp.dest(path.release.css));
 });
 
 gulp.task('watch', function(){
