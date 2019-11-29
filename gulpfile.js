@@ -66,6 +66,14 @@ fontsTask = () => {
         .pipe(reload({stream: true}));
 };
 
+workAll = () => {
+    imgTask();
+    cssTask();
+    jsTask();
+    fontsTask();
+    htmlTask();
+};
+
 startServer = () => {
     browserSync({
         server: {
@@ -75,6 +83,7 @@ startServer = () => {
         port: 3000,
         tunnel: false
     });
+    workAll();
 };
 
 defaultTask = cb => {
@@ -87,7 +96,6 @@ defaultTask = cb => {
     watch(Paths.setFileType('').setExtension('*.html').toString(), htmlTask);
 
     startServer();
-
     cb();
 };
 
