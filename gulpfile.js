@@ -8,7 +8,7 @@ const { src, dest, watch } = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	reload = browserSync.reload;
 
-const dev = !(process.argv.find(i => i === '--r'));
+const dev = !!(process.argv.find(i => i === '--r'));
 if (dev) {
 	console.log('Development GULP starts');
 } else{
