@@ -1,6 +1,6 @@
 {
   "name": "gulp-fish",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Perfect fish for gulp packer",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,17 @@
     "url": "https://patriotovsky.ru/"
   },
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-imagemin": "^6.1.0",
+    "gulp-less": "^4.0.1",
     "gulp-rigger": "^0.5.8",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^1.0.4"
   }
 }
