@@ -4,6 +4,8 @@ const { src, dest, watch } = require('gulp'),
 	rigger = require('gulp-rigger'),
 	imagemin = require('gulp-imagemin'),
 	browserSync = require('browser-sync'),
+	less = require('gulp-less'),
+	sourcemaps = require('gulp-sourcemaps'),
 	reload = browserSync.reload;
 
 const dev = !(process.argv.find(i => i === '--r'));
@@ -33,8 +35,14 @@ imgTask = () => {
 };
 
 cssTask = () => {
+	const sourceLess = Paths.setDirType('src').setFileType('css').setExtension('*.less').toString();
 	const source = Paths.setDirType('src').setFileType('css').setExtension('*.css').toString();
 	const build = Paths.setDirType('build').setExtension('').toString();
+
+	if (dev)
+		src(sourceLess).pipe(sourcemaps.init()).pipe(less()).pipe(sourcemaps.write()).pipe(rigger()).pipe(cleanCSS({compatibility: 'ie8'})).pipe(dest(build)).pipe(reload({stream: true}));
+	else
+		src(sourceLess).pipe(less()).pipe(rigger()).pipe(cleanCSS({compatibility: 'ie8'})).pipe(dest(build)).pipe(reload({stream: true}));
 
 	if (dev) 
 		return src(source).pipe(rigger()).pipe(cleanCSS({compatibility: 'ie8'})).pipe(dest(build)).pipe(reload({stream: true}));
@@ -98,7 +106,7 @@ defaultTask = cb => {
 	Paths.setDirType('src');
 
 	watch(Paths.setFileType('img').setExtension('*').toString(), imgTask);
-	watch(Paths.setFileType('css').setExtension('*.css').toString(), cssTask);
+	watch(Paths.setFileType('css').setExtension('*.*').toString(), cssTask);
 	watch(Paths.setFileType('js').setExtension('*.js').toString(), jsTask);
 	watch(Paths.setFileType('fonts').setExtension('*').toString(), fontsTask);
 	watch(Paths.setFileType('').setExtension('*.html').toString(), htmlTask);
