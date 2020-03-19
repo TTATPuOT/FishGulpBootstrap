@@ -1,4 +1,5 @@
 # FishGulpBootstrap
+Support CSS, Less and Sass, all with Sourcemaps. ES6 JS Support also. Fast and easy in setup, stable, has a release mode.
 <h1>Commands for bootstrap:</h1>
 <code>npm i</code><br>
 <code>npm i --global gulp</code><br>
